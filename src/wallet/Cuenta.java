@@ -1,43 +1,54 @@
 package wallet;
 
-public class Cuenta {
+class Cuenta extends Usuario{
 
-	//atributos
-	protected  int numeroCuenta;
-	private double saldo;
+	//atributo
+    private double saldo;
+    private int numCuenta;
+    private Usuario nombre;
+    
 
-	// Constructor
-	public Cuenta(int numCuenta, double saldoInicial) {
-		this.numeroCuenta = numCuenta;
-		this.saldo = saldoInicial;
-	}
+    // Constructor
+    public Cuenta(String nombre, double rut, double saldo, int numCuenta ) {
+    	super(nombre, rut);
+        this.saldo = saldo;
+        this.numCuenta = numCuenta;
+       
+    }
 
-	// Método para depositar dinero
-	public void depositar(double cantidad) {
-		if (cantidad > 0) {
-			var cantidadFinal = saldo + cantidad;
-			System.out.println("Depósito exitoso. Saldo anteriro: $" + saldo + " Su nuevo saldo es de: $" + cantidadFinal);
+    // Getter para el atributo saldo
+    public double getSaldo() {
+        return saldo;
+    }
+    
+    public double getnumCuenta() {
+        return numCuenta;
+    }
+ // Método para mostrar los datos de la cuenta
+ 		public void mostrarDatos() {
+ 			System.out.println("Número de cuenta: " + numCuenta);
+ 			System.out.println("Titular: " + nombre );
+ 			System.out.println("Saldo: $" + saldo);
+ 		}
+ 	// Método para depositar dinero
+ 			public void depositar(double monto) {
+ 				if (monto > 0) {
+ 					var montoFinal = saldo + monto;
+ 					System.out.println("Depósito exitoso. Saldo anteriro: $" + saldo + " Su nuevo saldo es de: $" + montoFinal);
 
-			saldo = cantidadFinal;
-		} else
-			System.out.println("ERROR, la cantidad debe ser mayor que cero.");
+ 					saldo = montoFinal;
+ 				} else
+ 					System.out.println("ERROR, el monto debe ser mayor que cero.");
+ 			}
+ 			
+ 		// Método para retirar dinero
+ 			public void retirar(double monto) {
+ 				if (monto > 0 && monto <= saldo) {
+ 					var montoFinal = saldo - monto;
+ 					System.out.println("Retiro exitoso. Saldo anterior: $" + saldo + " Su nuevo saldo es de: $" + montoFinal);
 
-	}
-
-	// Método para retirar dinero
-	public void retirar(double monto) {
-		if (monto > 0 && monto <= saldo) {
-			var montoFinal = saldo - monto;
-			System.out.println("Retiro exitoso. Saldo anterior: $" + saldo + " Su nuevo saldo es de: $" + montoFinal);
-
-			saldo = montoFinal;
-		} else
-			System.out.println("ERROR, monto inválido o saldo insuficiente.");
-	}
-
-	public void mostrarInformacion() {
-		// TODO Auto-generated method stub
-		
-	}
-
+ 					saldo = montoFinal;
+ 				} else
+ 					System.out.println("ERROR, monto inválido o saldo insuficiente.");
+ 			}
 }

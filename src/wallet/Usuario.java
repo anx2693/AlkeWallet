@@ -1,35 +1,27 @@
 package wallet;
 
+class Usuario  {
 
-public class Usuario {
-
-	// atributos 
-	protected long identificador;
-	protected String nombre;
-	protected Cuenta cuenta;
-	
-	
-	//contructor
-	public Usuario(long ID, String nombreUsuario) {
-        this.identificador = ID;
-        this.nombre = nombreUsuario;
-	
-}
-	
-	// geter y setter
-	
-	// Método para crear una cuenta
-    public void crearCuenta(int numCuenta, double saldoInicial) {
-        cuenta = new Cuenta(numCuenta, saldoInicial);
-    }
+	private String nombre;
+    private double rut;
     
- // Método para crear deposito
-    public void deposito(double cantidad) {
-        cuenta.depositar(cantidad);
+    
+
+    // Constructor
+    public Usuario(String nombre, double rut ) {
+        this.nombre = nombre;
+        this.rut = rut;
+       
     }
- // Método para retirar
-    public void retirar(double saldoInicial) {
-        cuenta.retirar(saldoInicial);
+
+    // Getter para el atributo titular
+    public String getNombre() {
+        return nombre;
     }
- 
+
+    // Getter para el atributo saldo
+    public double getRut() {
+        return rut;
+    }
 }
+
