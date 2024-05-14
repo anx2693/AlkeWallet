@@ -1,6 +1,6 @@
 package wallet;
 
-class Usuario  {
+public class Usuario  {
 
 	private String nombre;
     private double rut;
@@ -18,10 +18,16 @@ class Usuario  {
     public String getNombre() {
         return nombre;
     }
+    public void setNombre(String nombre) {
+	     this.nombre = nombre;
+	 }
 
     // Getter para el atributo saldo
     public double getRut() {
         return rut;
     }
+    public void setRut(double rut) {
+	     this.rut = rut;
+	 }
 }
 

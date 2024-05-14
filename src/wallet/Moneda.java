@@ -1,10 +1,9 @@
 package wallet;
 
-class Moneda extends Cuenta {
+public class Moneda {
 
-	public Moneda(String nombre, double rut, double saldo, int numCuenta) {
-		super(nombre, rut, saldo, numCuenta);
-		// TODO Auto-generated constructor stub
+	
+	public double convertir(double cantidad) {
+		return 0;
 	}
-
 }

@@ -1,20 +1,32 @@
 package wallet;
 
-class Transaccion extends Cuenta {
+
+
+public class Transaccion extends Cuenta {
 	
 	
 	private double monto;
-	
+	private Cuenta origen;
+	 private Cuenta destino;
+	 private Cuenta numCuenta;
 	
 
-	public Transaccion(String nombre, double rut, double saldo,int numCuenta, double limiteCredito, double monto) {
-		super(nombre, rut, saldo, numCuenta);
+	public Transaccion(String nombre,int numCuenta, double monto, Cuenta origen, Cuenta destino) {
+		super(nombre, monto, monto, numCuenta);
 		this.monto = monto;
-		
-		// TODO Auto-generated constructor stub
+		this.origen = origen;
+	     this.destino = destino;
+
 	}
 
-	
+	 public boolean ejecutar() {
+	     if (origen.getSaldo() >= monto) {
+	         origen.retirar(monto);
+	         destino.depositar(monto);
+	         return true;
+	     }
+	     return false;
+	 }
 
    
 }

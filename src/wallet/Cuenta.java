@@ -1,6 +1,6 @@
 package wallet;
 
-class Cuenta extends Usuario{
+public class Cuenta extends Usuario{
 
 	//atributo
     private double saldo;
